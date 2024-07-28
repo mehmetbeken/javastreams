@@ -32,12 +32,14 @@ public class Main {
         }
 
         // I want to employe name add empty list
+        //MAP
         List<String> employeeNameList = employeeList.stream().map(Employee::getName).toList();
         for (String name : employeeNameList) {
             System.out.println(name);
         }
 
         //I want to find the total of salaries
+        //REDUCE
         BigDecimal sumSalary = employeeList.stream().map(Employee::getSalary).reduce(BigDecimal.ZERO, BigDecimal::add);
         System.out.println(sumSalary);
 
@@ -56,6 +58,7 @@ public class Main {
         }
 
         // If there is an employee with the same name, I do not want to include the second name on the list.
+        //distinct
         List<Employee> distinctEmployeesByName = employeeList.stream()
                 .collect(Collectors.toMap(
                         Employee::getName, // Her bir çalışan için anahtar olarak name alanını kullan
